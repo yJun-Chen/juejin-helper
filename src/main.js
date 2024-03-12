@@ -75,11 +75,11 @@ const main = async () => {
   //   growth.luckyValue = dipLuckyResult.total_value
   // }
 
-  // 查找幸运值
-  const dipLuckyResult = await juejin.dipLucky(firstLottery.history_id)
-  growth.dippedLucky = dipLuckyResult.has_dip
-  growth.dipValue = dipLuckyResult.dip_value
-  growth.luckyValue = dipLuckyResult.total_value
+  // TODO: 查找幸运值
+  // const dipLuckyResult = await juejin.dipLucky(firstLottery.history_id)
+  // growth.dippedLucky = dipLuckyResult.has_dip
+  // growth.dipValue = dipLuckyResult.dip_value
+  // growth.luckyValue = dipLuckyResult.total_value
 
   // 免费抽奖
   const lotteryConfig = await juejin.getLotteryConfig()
