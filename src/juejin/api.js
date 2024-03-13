@@ -66,6 +66,17 @@ class Api {
     return this.http.post('/growth_api/v1/lottery_history/global_big', { page_no, page_size })
   }
 
+    /**
+   * @desc 查看喜气
+   * @returns {Promise<*>}
+   * {
+   *   total_value: Number 幸运值
+   * }
+   */
+  myLucky() {
+    return this.http.post('/growth_api/v1/lottery_lucky/my_lucky')
+  }
+
   /**
    * @desc 沾喜气
    * @param lottery_history_id
