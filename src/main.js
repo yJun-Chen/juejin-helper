@@ -76,10 +76,8 @@ const main = async () => {
   // }
 
   // TODO: 查找幸运值
-  // const dipLuckyResult = await juejin.dipLucky(firstLottery.history_id)
-  // growth.dippedLucky = dipLuckyResult.has_dip
-  // growth.dipValue = dipLuckyResult.dip_value
-  // growth.luckyValue = dipLuckyResult.total_value
+  const myLuckyResult = await juejin.myLucky()
+  growth.luckyValue = myLuckyResult.total_value || 0
 
   // 免费抽奖
   const lotteryConfig = await juejin.getLotteryConfig()
