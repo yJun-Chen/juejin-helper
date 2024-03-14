@@ -75,9 +75,7 @@ const main = async () => {
   //   growth.luckyValue = dipLuckyResult.total_value
   // }
 
-  // TODO: 查找幸运值
-  const myLuckyResult = await juejin.myLucky()
-  growth.luckyValue = myLuckyResult.total_value || 0
+
 
   // 免费抽奖
   const lotteryConfig = await juejin.getLotteryConfig()
@@ -88,6 +86,11 @@ const main = async () => {
 
     growth.freeDrawed = true
     growth.lotteryName = lottery.lottery_name
+    growth.luckyValue = lottery.total_lucky_value || 0
+  }else{
+    // 查找幸运值
+    const myLuckyResult = await juejin.myLucky()
+    growth.luckyValue = myLuckyResult.total_value || 0
   }
 
   // 当前矿石数
