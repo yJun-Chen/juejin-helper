@@ -31,6 +31,7 @@ ${growth.dippedLucky ? '今日已经沾过喜气' : `沾喜气 +${growth.dipValu
 当前幸运值 ${growth.luckyValue}
 免费抽奖次数 ${growth.freeCount}
 ${growth.freeDrawed ? `恭喜抽中 ${growth.lotteryName}` : '今日已免费抽奖'}
+打开掘金：<a href="https://juejin.cn/">掘金</a>
 `.trim()
 }
 
