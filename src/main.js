@@ -50,12 +50,6 @@ const main = async () => {
 
   // 获取签到状态
   const checkIn = await juejin.getTodayStatus()
-  /**
-  pushMessage({
-      type: 'info',
-      message: `判断签到 Hello ${checkIn.check_in_done}`
-  })
-  */
   
   if (!checkIn.check_in_done) {
     const checkInResult = await juejin.checkIn()
@@ -101,12 +95,8 @@ const main = async () => {
 
   // 当前矿石数
   growth.sumPoint = await juejin.getCurrentPoint()
-
-  pushMessage({
-    type: 'info',
-    message: message(),
-  })
 }
+
 main()
 
 /**
