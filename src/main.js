@@ -73,15 +73,23 @@ const main = async () => {
   //   growth.luckyValue = dipLuckyResult.total_value
   // }
 
-
+    pushMessage({
+    type: 'info',
+    message: `开始抽奖`,
+  })
 
   // 免费抽奖
   const lotteryConfig = await juejin.getLotteryConfig()
+    pushMessage({
+    type: 'info',
+    message: `抽奖完成1`,
+  })
+
   growth.freeCount = lotteryConfig.free_count || 0
 
   pushMessage({
     type: 'info',
-    message: `抽奖完成`,
+    message: `抽奖完成2`,
   })
 
   if (growth.freeCount > 0) {
