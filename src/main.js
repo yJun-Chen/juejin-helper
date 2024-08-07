@@ -43,17 +43,17 @@ const main = async () => {
     await juejin.login(COOKIE)
 
     growth.userName = juejin.user.user_name
-    pushMessage({
-      type: 'info',
-      message: `签到成功 Hello ${growth.userName}`
-  })
+
   } catch {
     throw new Error('登录失败, 请尝试更新 Cookies')
   }
 
   // 签到
   const checkIn = await juejin.getTodayStatus()
-
+  pushMessage({
+      type: 'info',
+      message: `签到成功 Hello ${checkIn}`
+  })
   if (!checkIn) {
     const checkInResult = await juejin.checkIn()
 
