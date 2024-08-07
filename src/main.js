@@ -79,6 +79,12 @@ const main = async () => {
   })
 
   // 免费抽奖
+  try {
+    const lotteryConfig = await juejin.getLotteryConfig()
+  } catch (error) {
+    // 处理捕获到的错误
+    console.error(error);
+  }
   const lotteryConfig = await juejin.getLotteryConfig()
     pushMessage({
     type: 'info',
