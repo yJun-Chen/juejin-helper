@@ -58,6 +58,10 @@ const main = async () => {
   */
   
   if (!checkIn.check_in_done) {
+      pushMessage({
+      type: 'info',
+      message: `签到 Hello `
+  })
     const checkInResult = await juejin.checkIn()
     growth.checkedIn = true
     growth.incrPoint = checkInResult.incr_point
@@ -65,7 +69,10 @@ const main = async () => {
 
   // 签到天数
   const counts = await juejin.getCounts()
-
+  pushMessage({
+      type: 'info',
+      message: `签到天数 Hello ${counts.cont_count}`
+  })
   growth.contCount = counts.cont_count
   growth.sumCount = counts.sum_count
 
