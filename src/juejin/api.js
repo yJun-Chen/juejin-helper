@@ -22,7 +22,7 @@ class Api {
    * Boolean 是否签到
    */
   getTodayStatus() {
-    # return this.http.get('/growth_api/v1/get_today_status')
+    // return this.http.get('/growth_api/v1/get_today_status')
     return this.http.get('/growth_api/v2/get_today_status?spider=0')
   }
 
