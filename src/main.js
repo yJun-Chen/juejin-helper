@@ -52,11 +52,14 @@ const main = async () => {
   const checkIn = await juejin.getTodayStatus()
   pushMessage({
       type: 'info',
-      message: `签到成功 Hello ${checkIn.check_in_done}`
+      message: `判断签到 Hello ${checkIn.check_in_done}`
   })
   if (!checkIn) {
     const checkInResult = await juejin.checkIn()
-
+  pushMessage({
+      type: 'info',
+      message: `签到 Hello ${checkInResult.incr_point}`
+  })
     growth.checkedIn = true
     growth.incrPoint = checkInResult.incr_point
   }
