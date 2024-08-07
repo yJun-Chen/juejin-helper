@@ -43,6 +43,10 @@ const main = async () => {
     await juejin.login(COOKIE)
 
     growth.userName = juejin.user.user_name
+    pushMessage({
+      type: 'info',
+      message: '签到成功 Hello ${growth.userName}',
+  })
   } catch {
     throw new Error('登录失败, 请尝试更新 Cookies')
   }
