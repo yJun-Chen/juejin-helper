@@ -41,9 +41,7 @@ const main = async () => {
   // 登录
   try {
     await juejin.login(COOKIE)
-
     growth.userName = juejin.user.user_name
-
   } catch {
     throw new Error('登录失败, 请尝试更新 Cookies')
   }
@@ -81,8 +79,17 @@ const main = async () => {
   const lotteryConfig = await juejin.getLotteryConfig()
   growth.freeCount = lotteryConfig.free_count || 0
 
+  pushMessage({
+    type: 'info',
+    message: `抽奖完成`,
+  })
+
   if (growth.freeCount > 0) {
     const lottery = await juejin.drawLottery()
+    pushMessage({
+      type: 'info',
+      message: `drawLottery`,
+    })
 
     growth.freeDrawed = true
     growth.lotteryName = lottery.lottery_name
@@ -90,20 +97,27 @@ const main = async () => {
   }else{
     // 查找幸运值
     const myLuckyResult = await juejin.myLucky()
+    pushMessage({
+      type: 'info',
+      message: `查找幸运值完成`,
+    })
     growth.luckyValue = myLuckyResult.total_value || 0
   }
 
+
   // 当前矿石数
   growth.sumPoint = await juejin.getCurrentPoint()
+
+  pushMessage({
+    type: 'info',
+    message: message(),
+  })
 }
 
-main()
-
-/**
 main().catch(error => {
   pushMessage({
     type: 'error',
     message: error.stack,
   })
 })
-*/
+
