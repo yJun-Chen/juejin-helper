@@ -52,7 +52,7 @@ const main = async () => {
   const checkIn = await juejin.getTodayStatus()
   pushMessage({
       type: 'info',
-      message: `签到成功 Hello ${checkIn.check_in_done}`
+      message: `签到成功 Hello ${checkIn}`
   })
   if (!checkIn) {
     const checkInResult = await juejin.checkIn()
