@@ -13,6 +13,7 @@ const pushMessage = ({ type, message }) => {
         style: 'markdown',
         bold: true,
       }))
+  console.log("打印完成")
   
   EMAIL &&
     AUTHORIZATION_CODE &&
