@@ -73,48 +73,23 @@ const main = async () => {
   //   growth.luckyValue = dipLuckyResult.total_value
   // }
 
-    pushMessage({
-    type: 'info',
-    message: `开始抽奖`,
-  })
-
   // 免费抽奖
   try {
     const lotteryConfig = await juejin.getLotteryConfig()
+    growth.freeCount = lotteryConfig.free_count || 0
   } catch (error) {
     // 处理捕获到的错误
     console.error(error);
   }
-  const lotteryConfig = await juejin.getLotteryConfig()
-    pushMessage({
-    type: 'info',
-    message: `抽奖完成1`,
-  })
-
-  growth.freeCount = lotteryConfig.free_count || 0
-
-  pushMessage({
-    type: 'info',
-    message: `抽奖完成2`,
-  })
 
   if (growth.freeCount > 0) {
     const lottery = await juejin.drawLottery()
-    pushMessage({
-      type: 'info',
-      message: `drawLottery`,
-    })
-
     growth.freeDrawed = true
     growth.lotteryName = lottery.lottery_name
     growth.luckyValue = lottery.total_lucky_value || 0
   }else{
     // 查找幸运值
     const myLuckyResult = await juejin.myLucky()
-    pushMessage({
-      type: 'info',
-      message: `查找幸运值完成`,
-    })
     growth.luckyValue = myLuckyResult.total_value || 0
   }
 
