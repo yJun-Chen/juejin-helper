@@ -34,7 +34,7 @@ class Api {
    * }
    */
   checkIn() {
-    return this.http.post('/growth_api/v1/check_in')
+    return this.http.post('/growth_api/v1/check_in?aid=&uuid=&spider=&msToken=&a_bogus=')
   }
 
   /**
@@ -100,7 +100,7 @@ class Api {
    * }
    */
   getLotteryConfig() {
-    return this.http.get('/growth_api/v1/lottery_config/get')
+    return this.http.get('/growth_api/v1/lottery_config/get?aid=&uuid=&spider=&msToken=&a_bogus=')
   }
 
   /**
@@ -111,7 +111,7 @@ class Api {
    * }
    */
   drawLottery() {
-    return this.http.post('/growth_api/v1/lottery/draw')
+    return this.http.post('/growth_api/v1/lottery/draw?aid=&uuid=&spider=&msToken=&a_bogus=')
   }
 
   /**
