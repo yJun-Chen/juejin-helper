@@ -39,16 +39,19 @@ const main = async () => {
   const juejin = new Juejin()
 
   // 登录
+  console.log("登录...")
   try {
     await juejin.login(COOKIE)
     growth.userName = juejin.user.user_name
-    console.log("用户名：",growth.userName)
+    console.log("登录成功，用户名：",growth.userName)
   } catch {
+    console.log("登录失败")
     throw new Error('登录失败, 请尝试更新 Cookies')
   }
   console.log("登录完成")
 
   // 获取签到状态
+  console.log("获取签到状态")
   const checkIn = await juejin.getTodayStatus()
   
   if (!checkIn.check_in_done) {
@@ -58,6 +61,7 @@ const main = async () => {
   }
 
   // 签到天数
+  console.log("获取签到天数")
   const counts = await juejin.getCounts()
   growth.contCount = counts.cont_count
   growth.sumCount = counts.sum_count
