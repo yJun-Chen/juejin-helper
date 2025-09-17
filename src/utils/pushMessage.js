@@ -5,9 +5,6 @@ const feishu = require('./feishu.js')
 const { EMAIL, AUTHORIZATION_CODE, PUSHPLUS_TOKEN, DINGDING_WEBHOOK, FEISHU_WEBHOOK } = require('../ENV.js')
 
 const pushMessage = ({ type, message }) => {
-  
-  console.log("message")
-  console.log(message)
 
   console.log("打印消息")
   console.log(      formatter(type, message, {
