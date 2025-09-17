@@ -46,6 +46,7 @@ const main = async () => {
   } catch {
     throw new Error('登录失败, 请尝试更新 Cookies')
   }
+  console.log("登录完成")
 
   // 获取签到状态
   const checkIn = await juejin.getTodayStatus()
