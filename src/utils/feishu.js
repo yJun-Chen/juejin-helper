@@ -4,15 +4,8 @@ const SUCCESS_CODE = 0
 
 const feishu = async ({ title = '', content = '' } = {}) => {
   
-  console.log("飞书打印")
-  console.log(template(title, content))
-  
-  console.log("title:")
-  console.log(title)
-  
-  console.log("content")
-  console.log(content)
-  console.log("打印结束")
+  console.log("发生消息到飞书")
+
   try {
     await axios.post(FEISHU_WEBHOOK, template(title, content)).then(response => {
       if (response?.data?.StatusCode !== SUCCESS_CODE) {
