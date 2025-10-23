@@ -53,6 +53,7 @@ const main = async () => {
   // 获取签到状态
   console.log("获取签到状态\n")
   const checkIn = await juejin.getTodayStatus()
+  console.log("签到状态checkIn：",checkIn)
   
   if (!checkIn.check_in_done) {
     const checkInResult = await juejin.checkIn()
