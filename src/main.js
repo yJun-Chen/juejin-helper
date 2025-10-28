@@ -56,7 +56,9 @@ const main = async () => {
   console.log("签到状态checkIn：",checkIn)
   
   if (!checkIn.check_in_done) {
+    console.log("签到中....")
     const checkInResult = await juejin.checkIn()
+    console.log("签到结果：",checkInResult)
     growth.checkedIn = true
     growth.incrPoint = checkInResult.incr_point
   }
